@@ -1,0 +1,33 @@
+{
+	"name": "dipcom/annevents",
+	"description": "",
+	"homepage": "http://dipcom.cz",
+	"type": "library",
+	"license": ["MIT"],
+	"authors": [
+		{
+			"name": "Mykola Chomenko",
+			"homepage": "http://dipcom.cz",
+                        "email": "mykola.chomenko@dipcom.cz"
+		}
+	],
+	
+	"require": {
+		"nette/di": "~2.2",
+                "nette/robot-loader":"~2.3.0",
+                "kdyby/doctrine":"^2.3"
+	},
+	"require-dev": {
+		"nette/tester": "@dev"
+	},
+	"autoload": {
+		"psr-0": {
+			"DIPcom\\AnnEvents\\": "src/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	}
+}
