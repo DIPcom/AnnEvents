@@ -62,7 +62,7 @@ class AnnEventsExtension extends Nette\DI\CompilerExtension{
             
             if($c_ann){    
                 $this->addDefinition($name, $builder);
-                $this->addPropertys($reflClass, $c_ann);
+                $this->addProperties($reflClass, $c_ann);
                 $this->addMethods($reflClass, $c_ann);                
             }
             
@@ -76,7 +76,7 @@ class AnnEventsExtension extends Nette\DI\CompilerExtension{
      * @param \ReflectionClass $class
      * @param Object $c_ann
      */
-    public function addPropertys(\ReflectionClass $class, $c_ann){
+    public function addProperties(\ReflectionClass $class, $c_ann){
         if($this->isListener($c_ann)){ 
             foreach($class->getProperties() as $ref_prop){
                 $annotation = $this->reader->getPropertyAnnotation($ref_prop, 'DIPcom\AnnEvents\Mapping\On');
