@@ -21,7 +21,7 @@
 		"nette/tester": "@dev"
 	},
 	"autoload": {
-		"psr-0": {
+		"psr-4": {
 			"DIPcom\\AnnEvents\\": "src/"
 		}
 	}
