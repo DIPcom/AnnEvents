@@ -48,26 +48,37 @@ class AnnEventsExtension extends Nette\DI\CompilerExtension{
 
     
     public function loadConfiguration() {
-        
+
         $builder = $this->getContainerBuilder();
         $this->defaults['tempDir'] = $builder->parameters['tempDir'];
         $this->defaults['appDir'] = $builder->parameters['appDir'];
         $this->defaults = $this->getConfig($this->defaults);
 
-        $reader = new AnnotationReader();
+       // $reader = new AnnotationReader();
 
+
+        $builds = array();
         foreach($this->getClasses() as $name => $dir){
             $reflClass = new \ReflectionClass($name);
-            $c_ann = $reader->getClassAnnotation($reflClass, $this->mapping["interface"]);
-            
-            if($c_ann){    
+            $c_ann = $this->reader->getClassAnnotation($reflClass, $this->mapping["interface"]);
+
+            if($c_ann){
                 $this->addDefinition($name, $builder);
                 $this->addProperties($reflClass, $c_ann);
-                $this->addMethods($reflClass, $c_ann);                
+                $builds[] = array(
+                    'ref' => $reflClass,
+                    'ann' => $c_ann
+                );
+            }else{
+                unset($c_ann);
+                unset($reflClass);
             }
-            
-            
         }
+
+        foreach ($builds as $build){
+            $this->addMethods($build['ref'], $build['ann']);
+        }
+
         $this->guideline->install($builder);
     }
     
@@ -144,7 +155,7 @@ class AnnEventsExtension extends Nette\DI\CompilerExtension{
      */
     public function addDefinition($class_name,  Nette\DI\ContainerBuilder $builder){
         $name = str_replace('\\','_',$class_name);
-        $builder->addDefinition($this->prefix(str_replace('\\','_',$name)))
+        $builder->addDefinition($this->prefix($name))
             ->setClass($class_name)
             ->setInject(true);
         return $name;

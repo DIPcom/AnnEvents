@@ -15,18 +15,14 @@ class Guideline extends Nette\Object{
     
     
     public function addEvent(\ReflectionMethod $method, Target $annotations){
-
         if(!$this->issetListener($annotations)){
             throw new \Exception('Annotation @Target error. '.$annotations->listener.'::'.$annotations->referenced." listener doesn't exist in ".$method->class.'::'.$method->name.'()');
         }
-        
         $call = array(
             "class" => $method->class,
             "method" => $method->name
         );
-        
         $this->listener[str_replace('\\','_',$annotations->listener)][$annotations->referenced]['call'][] = $call;
-        
     }
     
     
@@ -58,7 +54,7 @@ class Guideline extends Nette\Object{
     
     
     public function install(Nette\DI\ContainerBuilder $builder){
-        
+
         foreach($this->listener as $class_name => $on){
             
             $definition = $builder->getDefinition("annevents.".$class_name);
