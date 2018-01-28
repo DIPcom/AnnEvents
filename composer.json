@@ -13,9 +13,9 @@
 	],
 	
 	"require": {
-		"nette/di": "^2.2",
-                "nette/robot-loader":"^2.3",
-                "kdyby/doctrine":"^2.3"
+		"nette/di": ">=2.2",
+                "nette/robot-loader":">=2.3",
+                "kdyby/doctrine":">=2.3"
 	},
 	"require-dev": {
 		"nette/tester": "@dev"
