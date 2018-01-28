@@ -13,14 +13,14 @@
 	],
 	
 	"require": {
-		"nette/di": ">=2.2",
-                "nette/robot-loader":">=2.3",
-                "kdyby/doctrine":">=2.3"
+	   "nette/di": ">=2.2",
+           "nette/robot-loader":">=2.3",
+           "kdyby/doctrine":">=2.3"
 	},
 	"autoload": {
-		"psr-4": {
-			"DIPcom\\AnnEvents\\": "src/"
-		}
-	}
+	    "psr-4": {
+	      "DIPcom\\AnnEvents\\": "src/"
+	    }
+	 }
 
 }
