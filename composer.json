@@ -18,13 +18,9 @@
                 "kdyby/doctrine":">=2.3"
 	},
 	"autoload": {
-		"psr-0": {
-			"DIPcom\\AnnEvents\\": "src/"
-		}
-	},
-	"autoload-dev":{
-		"psr-0": {
+		"psr-4": {
 			"DIPcom\\AnnEvents\\": "src/"
 		}
 	}
+
 }
