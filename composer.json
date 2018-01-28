@@ -17,9 +17,6 @@
                 "nette/robot-loader":">=2.3",
                 "kdyby/doctrine":">=2.3"
 	},
-	"require-dev": {
-		"nette/tester": "@dev"
-	},
 	"autoload": {
 		"psr-4": {
 			"DIPcom\\AnnEvents\\": "src/"
