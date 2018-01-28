@@ -24,10 +24,5 @@
 		"psr-0": {
 			"DIPcom\\AnnEvents\\": "src/"
 		}
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "1.0-dev"
-		}
 	}
 }
